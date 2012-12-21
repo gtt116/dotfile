@@ -1,4 +1,4 @@
-export PAGER=more
+export PAGER=less
 alias tail='colortail -k ~/.colortail/colortail-openstack.conf'
 alias ps='ps -aufx'
 alias vi='vim'
