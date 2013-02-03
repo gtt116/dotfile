@@ -1,4 +1,4 @@
-set -g prefix M-c
+set -g prefix M-x
 unbind-key -n C-a
 
 bind-key k selectp -U
