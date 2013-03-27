@@ -1,0 +1,5 @@
+autodetach on
+
+startup_message off
+hardstatus alwayslastline
+hardstatus string '%{= kG}[%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][ %{G}%H %{g}][%{B} %m-%d %{W}%c %{g}]'
