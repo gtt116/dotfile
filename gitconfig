@@ -1,0 +1,13 @@
+[alias]
+	st = status
+	cm = commit
+	ck = checkout
+	lg = log --pretty=oneline --graph --abbrev-commit --decorate --all
+[color]
+	ui = auto
+[user]
+	email = gtt116@gmail.com
+	name = gtt116
+[http] sslverify = false
+[core]
+	editor = vim
