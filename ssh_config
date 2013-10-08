@@ -1,0 +1,11 @@
+# Rename this file to ~/.ssh/config to work.
+
+StrictHostKeyChecking no
+UserKnownHostsFile /dev/null
+LogLevel ERROR
+
+#Host a*
+#HostName 114.113.199.11
+#User hzgaott
+#Port 1046
+#LocalForward 8000 10.162.161.41:80
