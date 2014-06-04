@@ -14,6 +14,12 @@ install_pip_mirror()
     cp -v pip.conf ~/.pip/pip.conf
 }
 
+install_pip_db_mirror(){
+    echo 'Install douban pip mirrors'
+    mkdir ~/.pip
+    cp -v pydistutils.cfg.douban ~/.pydistutils.cfg
+    cp -v pip.conf.douban ~/.pip/pip.conf
+}
 install_byobu_keybinding()
 {
     echo 'Install byobu keybinding'
@@ -30,6 +36,8 @@ if [[ $1 == 'git' ]];then
     install_git
 elif [[ $1 == 'pip' ]]; then
     install_pip_mirror
+elif [[ $1 == 'pip-db' ]]; then
+    install_pip_db_mirror
 elif [[ $1 == 'byobu' ]]; then
     install_byobu_keybinding
 elif [[ $1 == 'all' ]]; then
@@ -37,5 +45,5 @@ elif [[ $1 == 'all' ]]; then
     install_pip_mirror
     install_byobu_keybinding
 else
-    echo "Usages: $0 <git|pip|byobu|all>"
+    echo "Usages: $0 <git|pip|pip-db|byobu|all>"
 fi
