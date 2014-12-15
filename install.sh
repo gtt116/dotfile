@@ -42,7 +42,7 @@ elif [[ $1 == 'byobu' ]]; then
     install_byobu_keybinding
 elif [[ $1 == 'all' ]]; then
     install_git
-    install_pip_mirror
+    install_pip_db_mirror
     install_byobu_keybinding
 else
     echo "Usages: $0 <git|pip|pip-db|byobu|all>"
