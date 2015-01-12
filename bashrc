@@ -85,6 +85,7 @@ fi
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
+alias tmux='tmux -2'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -102,7 +103,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export PAGER=less
+export PAGER='less -r'
 export EDITOR=vim
 
 export PS1='\[\033[01;32m\]\h\[\033[01;34m\] \w\[\033[31m\]$(__git_ps1 "(%s)") \[\033[01;34m\]$\[\033[00m\] '''
