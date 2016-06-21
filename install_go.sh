@@ -17,6 +17,8 @@ tar xzf $GO
 mv -v go ~/
 mkdir ~/gos
 
+echo 'Go install finished..'
 echo 'Please copy bashrc into $HOME dir to make go work'
+echo 'run: go get -u github.com/jstemmer/gotags to install gotags.'
 
 rm $GO
