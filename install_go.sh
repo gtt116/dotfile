@@ -20,5 +20,6 @@ mkdir ~/gos
 echo 'Go install finished..'
 echo 'Please copy bashrc into $HOME dir to make go work'
 echo 'run: go get -u github.com/jstemmer/gotags to install gotags.'
+echo 'run: go get -u github.com/rogpeppe/godef to install godef'
 
 rm $GO
