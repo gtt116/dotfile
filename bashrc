@@ -110,4 +110,4 @@ export PS1='\[\033[01;32m\]\h\[\033[01;34m\] \w\[\033[31m\]$(__git_ps1 "(%s)") \
 
 export GOROOT="$HOME/go"
 export GOPATH="$HOME/gos"
-export PATH="$GOPATH/bin:$PATH"
+export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
