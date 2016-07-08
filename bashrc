@@ -106,7 +106,11 @@ fi
 export PAGER='less -r'
 export EDITOR=vim
 
-export PS1='\[\033[01;32m\]\h\[\033[01;34m\] \w\[\033[31m\]$(__git_ps1 "(%s)") \[\033[01;34m\]$\[\033[00m\] '''
+which apt-get &>/dev/null
+is_debian=$?
+if [ is_debian == 1 ]; then
+	export PS1='\[\033[01;32m\]\h\[\033[01;34m\] \w\[\033[31m\]$(__git_ps1 "(%s)") \[\033[01;34m\]$\[\033[00m\] '''
+fi
 
 export GOROOT="$HOME/go"
 export GOPATH="$HOME/gos"
