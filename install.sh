@@ -51,6 +51,7 @@ elif [[ $1 == 'all' ]]; then
     install_pip_mirror
     install_byobu_keybinding
     install_bash
+    install_screen
 else
     echo "Usages: $0 <git|pip|pip-db|byobu|all>"
 fi
