@@ -38,6 +38,13 @@ install_bash()
     cp -v bashrc ~/.bashrc
 }
 
+install_vimrc()
+{
+    git clone git://github.com/gtt116/vimrc
+    cd vimrc
+    ./install.sh
+}
+
 if [[ $1 == 'git' ]];then
     install_git
 elif [[ $1 == 'pip' ]]; then
@@ -46,12 +53,15 @@ elif [[ $1 == 'pip-db' ]]; then
     install_pip_db_mirror
 elif [[ $1 == 'byobu' ]]; then
     install_byobu_keybinding
+elif [[ $1 == 'vimrc' ]]; then
+    install_vimrc
 elif [[ $1 == 'all' ]]; then
     install_git
     install_pip_db_mirror
     install_byobu_keybinding
     install_bash
     install_screen
+    install_vimrc
 else
     echo "Usages: $0 <git|pip|pip-db|byobu|all>"
 fi
