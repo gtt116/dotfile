@@ -106,10 +106,8 @@ fi
 export PAGER='less -r'
 export EDITOR=vim
 
-which git &>/dev/null
-installed_git=$?
-if [ $installed_git == 0 ]; then
-    source /etc/bash_completion.d/git
+if [ -f ~/.git-prompt.sh ]; then
+    source ~/.git-prompt.sh
 	export PS1='\[\033[01;32m\]\h\[\033[01;34m\] \w\[\033[31m\]$(__git_ps1 "(%s)") \[\033[01;34m\]$\[\033[00m\] '''
 fi
 

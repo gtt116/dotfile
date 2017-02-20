@@ -36,6 +36,7 @@ install_bash()
 {
     cp -v profile ~/.profile
     cp -v bashrc ~/.bashrc
+    cp -v git-prompt.sh ~/.git-prompt.sh
 }
 
 install_vimrc()
@@ -61,7 +62,6 @@ elif [[ $1 == 'all' ]]; then
     install_byobu_keybinding
     install_bash
     install_screen
-    install_vimrc
 else
     echo "Usages: $0 <git|pip|pip-db|byobu|all>"
 fi
