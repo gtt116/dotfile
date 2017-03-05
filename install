@@ -63,5 +63,5 @@ elif [[ $1 == 'all' ]]; then
     install_bash
     install_screen
 else
-    echo "Usages: $0 <git|pip|pip-db|byobu|all>"
+    echo "Usages: $0 <git|pip|pip-db|byobu|vimrc|all>"
 fi
