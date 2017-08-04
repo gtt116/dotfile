@@ -23,7 +23,8 @@ install_pip_db_mirror(){
 install_byobu_keybinding()
 {
     echo 'Install byobu keybinding'
-    cp -v keybindings.tmux ~/.byobu/keybindings.tmux
+    mkdir -p ~/.byobu
+    cp -r byobu/* ~/.byobu/
 }
 
 install_screen()
