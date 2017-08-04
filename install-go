@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-GO="go1.7.1.linux-amd64.tar.gz"
+GO="go1.8.3.linux-amd64.tar.gz"
 
 if [ -e ~/go ]; then
     echo 'golang already installed. exit'
@@ -8,10 +8,10 @@ if [ -e ~/go ]; then
 fi
 
 echo $GO
-wget http://s.gaott.info/$GO
+wget https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz
 
 echo 'Check sha256 of go1.6.2.tar'
-echo "43ad621c9b014cde8db17393dc108378d37bc853aa351a6c74bf6432c1bbd182 $GO" |  sha256sum --check -
+echo "1862f4c3d3907e59b04a757cfda0ea7aa9ef39274af99a784f5be843c80c6772 $GO" |  sha256sum --check -
 
 tar xzf $GO
 mv -v go ~/
