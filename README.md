@@ -16,3 +16,11 @@ The normal tree of these file like below:
             ~/.bash_aliases
             /etc/bash_completion
 
+
+## cheatsheet
+
+### visudo
+
+```
+ubuntu   ALL=(ALL)       NOPASSWD: ALL
+```
