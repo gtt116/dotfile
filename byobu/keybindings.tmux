@@ -8,3 +8,5 @@ bind-key l selectp -R
 
 bind-key [ splitw -v
 bind-key ] splitw -h
+
+bind-key s setw synchronize-panes
