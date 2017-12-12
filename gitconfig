@@ -2,7 +2,7 @@
 	st = status
 	cm = commit
 	ck = checkout
-	lg = log --pretty=oneline --graph --abbrev-commit --decorate --all
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     r  = review -v
 [color]
 	ui = auto
