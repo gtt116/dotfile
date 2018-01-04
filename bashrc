@@ -103,6 +103,17 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+## enable autojump
+# centos locates at below path
+if [ -f /etc/profile.d/autojump.sh ]; then
+    . /etc/profile.d/autojump.sh
+fi
+
+# ubuntu locates at below path
+if [ -f /usr/share/autojump/autojump.sh ]; then
+    . /usr/share/autojump/autojump.sh
+fi
+
 export PAGER='less -r'
 export EDITOR=vim
 
@@ -114,3 +125,4 @@ fi
 export GOROOT="$HOME/go"
 export GOPATH="$HOME/gos"
 export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
+
