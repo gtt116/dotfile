@@ -6,13 +6,18 @@ if [ -e ~/go ]; then
     exit 1
 fi
 
-url="https://mirrors.ustc.edu.cn/golang/go1.9.2.linux-amd64.tar.gz"
+url="https://mirrors.ustc.edu.cn/golang/go1.10.1.linux-amd64.tar.gz"
 GO=`basename $url`
+chkfile='sha256.txt'
+
 wget $url --no-check-certificate -O $GO
 echo $GO
 
-echo 'Check sha256'
-echo "de874549d9a8d8d8062be05808509c09a88a248e77ec14eb77453530829ac02b  $GO" |  sha256sum --check -
+wget "${url}.sha256" -O $chkfile
+
+echo 'Checking sha256'
+echo "`cat $chkfile`  $GO" |  sha256sum --check -
+rm $chkfile
 
 tar xzf $GO
 mv -v go ~/
