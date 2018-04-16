@@ -1,32 +1,56 @@
 #!/bin/bash
 set -e
 
-if [ -e ~/go ]; then
-    echo 'golang already installed. exit'
-    exit 1
-fi
+URL="https://mirrors.ustc.edu.cn/golang/go1.10.1.linux-amd64.tar.gz"
 
-url="https://mirrors.ustc.edu.cn/golang/go1.10.1.linux-amd64.tar.gz"
-GO=`basename $url`
-chkfile='sha256.txt'
+function postInstall() {
+    # post install some go tools
+    export GOROOT="$HOME/go"
+    export GOPATH="$HOME/gos"
+    export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
 
-wget $url --no-check-certificate -O $GO
-echo $GO
+    echo 'Installing gotags...'
+    go get -u github.com/jstemmer/gotags
 
-wget "${url}.sha256" -O $chkfile
+    echo 'Installing godef...'
+    go get -u github.com/rogpeppe/godef
 
-echo 'Checking sha256'
-echo "`cat $chkfile`  $GO" |  sha256sum --check -
-rm $chkfile
+    echo 'Installing govendor...'
+    go get -u github.com/kardianos/govendor
+}
 
-tar xzf $GO
-mv -v go ~/
-mkdir ~/gos
+function alreadyInstalled() {
+    if [ -e ~/go ]; then
+        echo 'golang already installed. exit'
+        exit 1
+    fi
+}
 
+function downloadAndInstallGo() {
+    GO=`basename $URL`
+    chkfile='sha256.txt'
+
+    wget $URL --no-check-certificate -O $GO
+    echo $GO
+
+    wget "${URL}.sha256" -O $chkfile
+
+    echo 'Checking sha256'
+    echo "`cat $chkfile`  $GO" |  sha256sum --check -
+    rm $chkfile
+
+    tar xzf $GO
+    mv -v go ~/
+    mkdir ~/gos
+    rm $GO
+}
+
+
+alreadyInstalled
+downloadAndInstallGo
+postInstall
+
+# All is ok
 echo 'Go install finished..'
 echo 'Please copy bashrc into $HOME dir to make go work'
-echo 'run: go get -u github.com/jstemmer/gotags to install gotags.'
-echo 'run: go get -u github.com/rogpeppe/godef to install godef'
-echo 'run: go get -u github.com/kardianos/govendor to install govendor'
 
-rm $GO
