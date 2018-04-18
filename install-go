@@ -17,6 +17,9 @@ function postInstall() {
 
     echo 'Installing govendor...'
     go get -u github.com/kardianos/govendor
+
+    echo "Installing delve..."
+    go get -u github.com/derekparker/delve/cmd/dlv
 }
 
 function alreadyInstalled() {
