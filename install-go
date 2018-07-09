@@ -20,6 +20,9 @@ function postInstall() {
 
     echo "Installing delve..."
     go get -u github.com/derekparker/delve/cmd/dlv
+
+    echo "Installing dep..."
+    go get -u github.com/golang/dep/cmd/dep
 }
 
 function alreadyInstalled() {
