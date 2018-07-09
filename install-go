@@ -1,7 +1,26 @@
 #!/bin/bash
 set -e
 
-URL="https://mirrors.ustc.edu.cn/golang/go1.9.5.linux-amd64.tar.gz"
+VERSION="1.9.5"
+OS="linux"
+
+function detectOS() {
+    case "$(uname -s)" in
+        Darwin)
+            OS="darwin"
+            echo "++ Detected MacOS"
+            ;;
+        Linux)
+            OS="linux"
+            echo "++ Detected Linux"
+            ;;
+        CYGWIN*|MINGW32*|MSYS*)
+            echo "We don't support Windows"
+            exit 2
+            ;;
+    esac
+}
+
 
 function postInstall() {
     # post install some go tools
@@ -33,6 +52,7 @@ function alreadyInstalled() {
 }
 
 function downloadAndInstallGo() {
+    URL="https://mirrors.ustc.edu.cn/golang/go${VERSION}.${OS}-amd64.tar.gz"
     GO=`basename $URL`
     chkfile='sha256.txt'
 
@@ -51,7 +71,7 @@ function downloadAndInstallGo() {
     rm $GO
 }
 
-
+detectOS
 alreadyInstalled
 downloadAndInstallGo
 postInstall

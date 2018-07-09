@@ -116,6 +116,8 @@ fi
 
 export PAGER='less -r'
 export EDITOR=vim
+export CLICOLOR=1
+export LSCOLORS=gxfxaxdxcxegedabagacad
 
 if [ -f ~/.git-prompt.sh ]; then
     source ~/.git-prompt.sh
