@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-VERSION="1.9.5"
+VERSION="1.10.1"
 OS="linux"
 
 function detectOS() {
@@ -47,6 +47,7 @@ function postInstall() {
 function alreadyInstalled() {
     if [ -e ~/go ]; then
         echo 'golang already installed. exit'
+        ~/go/bin/go version
         exit 1
     fi
 }
@@ -62,17 +63,24 @@ function downloadAndInstallGo() {
     wget "${URL}.sha256" -O $chkfile
 
     echo 'Checking sha256'
-    echo "`cat $chkfile`  $GO" |  sha256sum --check -
+    if [ $OS != "darwin" ]; then
+        echo "`cat $chkfile`  $GO" |  sha256sum --check -
+    fi
     rm $chkfile
 
     tar xzf $GO
-    mv -v go ~/
+    cp -v -f -r go ~/
+    rm -r go
     mkdir ~/gos
     rm $GO
+
+    go version
 }
 
 detectOS
-alreadyInstalled
+if [ "$1" != "force" ]; then 
+    alreadyInstalled
+fi
 downloadAndInstallGo
 postInstall
 
