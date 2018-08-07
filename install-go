@@ -69,10 +69,14 @@ function downloadAndInstallGo() {
     rm $chkfile
 
     tar xzf $GO
-    cp -v -f -r go ~/
-    rm -r go
-    mkdir ~/gos
     rm $GO
+
+    if [ -d ~/go ]; then
+        echo 'Found old go directory, delete it'
+        rm -rf ~/go
+    fi
+    mv go ~/
+    mkdir ~/gos
 
     go version
 }
