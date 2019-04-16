@@ -1,3 +1,4 @@
+escape ^Bb
 # Make screen support 256 color
 term "screen-256color"
 attrcolor b ".I"    # allow bold colors - necessary for some reason
