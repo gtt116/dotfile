@@ -124,6 +124,14 @@ if [ -f ~/.git-prompt.sh ]; then
 	export PS1='\[\033[01;32m\]\h\[\033[01;34m\] \w\[\033[31m\]$(__git_ps1 "(%s)") \[\033[01;34m\]$\[\033[00m\] '''
 fi
 
+_ssh_auth_save() {
+    if [ ! -d $HOME/.screen ]; then
+        mkdir $HOME/.screen
+    fi
+    ln -sf "$SSH_AUTH_SOCK" "$HOME/.screen/ssh-auth-sock"
+}
+alias screen='_ssh_auth_save; screen'
+
 export GOROOT="$HOME/go"
 export GOPATH="$HOME/gos"
 export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"

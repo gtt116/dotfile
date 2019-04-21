@@ -1,3 +1,4 @@
+escape ^Bb
 # Make screen support 256 color
 term "screen-256color"
 attrcolor b ".I"    # allow bold colors - necessary for some reason
@@ -14,3 +15,5 @@ hardstatus string '%{= kG}[%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?
 # (This fixes the "Aborted because of window size change" konsole symptoms found
 #  in bug #134198)
 termcapinfo xterm* 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+
+setenv SSH_AUTH_SOCK $HOME/.screen/ssh-auth-sock
